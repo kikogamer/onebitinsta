@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { ExploreContainerComponentModule } from '../../app/explore-container/explore-container.module';
+import { ComponentsModule } from '../../components/components.module'
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { ExploreContainerComponentModule } from '../../app/explore-container/exp
     FormsModule,
     IonicModule,
     ExploreContainerComponentModule,
+    ComponentsModule,
     RouterModule.forChild([{ path: '', component: HomePage }])
   ],
   declarations: [HomePage]
