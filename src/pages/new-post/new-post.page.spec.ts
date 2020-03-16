@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-import { SignOutPage } from './sign-out.page';
+import { ExploreContainerComponentModule } from '../../app/explore-container/explore-container.module';
 
-describe('SignOutPage', () => {
-  let component: SignOutPage;
-  let fixture: ComponentFixture<SignOutPage>;
+import { NewPost } from './new-post.page';
+
+describe('NewPostPage', () => {
+  let component: NewPost;
+  let fixture: ComponentFixture<NewPost>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SignOutPage ],
+      declarations: [NewPost],
       imports: [IonicModule.forRoot(), ExploreContainerComponentModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SignOutPage);
+    fixture = TestBed.createComponent(NewPost);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -3,17 +3,17 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SearchPage } from './search.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { HomePage } from './home.page';
+import { ExploreContainerComponentModule } from '../../app/explore-container/explore-container.module';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
+    IonicModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: SearchPage }])
+    RouterModule.forChild([{ path: '', component: HomePage }])
   ],
-  declarations: [SearchPage]
+  declarations: [HomePage]
 })
-export class SearchPageModule {}
+export class HomePageModule {}

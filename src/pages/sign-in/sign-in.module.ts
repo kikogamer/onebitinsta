@@ -3,18 +3,17 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SignOutPage } from './sign-out.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import { SignInPage } from './sign-in.page';
+import { ExploreContainerComponentModule } from '../../app/explore-container/explore-container.module';
 
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: SignOutPage }])
+    RouterModule.forChild([{ path: '', component: SignInPage }])
   ],
-  declarations: [SignOutPage]
+  declarations: [SignInPage]
 })
-export class SignOutPageModule {}
+export class SignInPageModule { }
