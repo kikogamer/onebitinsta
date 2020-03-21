@@ -13,7 +13,8 @@ import { ExploreContainerComponentModule } from '../../app/explore-container/exp
     FormsModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: SignInPage }])
-  ],
-  declarations: [SignInPage]
+  ],  
+  declarations: [SignInPage],
+  entryComponents: [SignInPage]
 })
 export class SignInPageModule { }

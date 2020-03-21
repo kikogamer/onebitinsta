@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { SignInPage } from '../sign-in/sign-in.page'
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ]
+  },
+  {
+    path: 'signin',
+    component: SignInPage
   },
   {
     path: '',
