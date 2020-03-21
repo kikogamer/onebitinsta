@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router'
  
 @Component({
   selector: 'page-sign-in',
@@ -9,9 +10,13 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignInPage {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   onLogin(form: NgForm){
     this.auth.login(form.value.email, form.value.password);
+  }
+
+  goToSignUpPage() {
+    this.router.navigateByUrl("sign-up");
   }
 }

@@ -21,9 +21,9 @@ export class AppComponent {
   ) {
         
     this.auth.config(() => {
-      router.navigateByUrl('/tabs/home')
+      this.router.navigateByUrl('/tabs/home')
     }, () => {
-      router.navigateByUrl('/signin')
+      this.router.navigateByUrl('/signin')
     })
 
     this.auth.checkLogin();

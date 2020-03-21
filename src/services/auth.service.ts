@@ -43,6 +43,14 @@ export class AuthService {
     this._currentUser = user;
     this.storage.set('user', user);
   }
+
+  signUp(user) {
+    this.http.post(`${API_URL}/users`, { user: user }).subscribe((data) => {
+      this.ifSignedIn();
+      this.setUser(data);
+      this.showToast("Signed up successfully", 2000);
+    }, (data) => { this.showToast(data.message) });
+  }
  
   private showToast(message, duration = 5000) {
     this.toastr.create({
