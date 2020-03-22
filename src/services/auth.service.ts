@@ -10,17 +10,17 @@ import { API_URL } from '../constants'
 export class AuthService {
 
   private _currentUser: {} = null;
-  private ifSignedIn = () => {};
-  private ifSignedOut = () => {};
- 
+  private ifSignedIn = () => { };
+  private ifSignedOut = () => { };
+
   constructor(private http: HttpClient, private storage: Storage, private toastr: ToastController) { }
 
-  config(ifSignedIn = () => {}, ifSignedOut = () => {}) {
+  config(ifSignedIn = () => { }, ifSignedOut = () => { }) {
     this.ifSignedIn = ifSignedIn;
     this.ifSignedOut = ifSignedOut;
-  } 
- 
-  checkLogin(){
+  }
+
+  checkLogin() {
     this.storage.get('user').then((user) => {
       this._currentUser = user;
       if (this._currentUser == null) {
@@ -29,16 +29,23 @@ export class AuthService {
         this.ifSignedIn();
       }
     });
-  }  
- 
-  login(email: string, password: String){
-    this.http.post(`${API_URL}/users/sign_in`, { user: { email: email, password: password }  })
-        .subscribe((data) => {
-          this.setUser(data);
-          this.ifSignedIn();
-        }, (data) => { this.showToast(data.message) });
   }
- 
+
+  login(email: string, password: String) {
+    this.http.post(`${API_URL}/users/sign_in`, { user: { email: email, password: password } })
+      .subscribe((data) => {
+        this.setUser(data);
+        this.ifSignedIn();
+      }, (data) => { this.showToast(data.message) });
+  }
+
+  logout() {
+    this.storage.remove('user');
+    this._currentUser = null;
+    this.ifSignedOut();
+    this.showToast("Signed out successfully", 2000);
+  }
+
   private setUser(user) {
     this._currentUser = user;
     this.storage.set('user', user);
@@ -51,7 +58,7 @@ export class AuthService {
       this.showToast("Signed up successfully", 2000);
     }, (data) => { this.showToast(data.message) });
   }
- 
+
   private showToast(message, duration = 5000) {
     this.toastr.create({
       message: message,
