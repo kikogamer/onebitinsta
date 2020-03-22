@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PostService } from '../../services/post/post.service'
+import { Post } from '../../models/post'
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,14 @@ import { PostService } from '../../services/post/post.service'
 })
 export class HomePage {
 
-  public posts = [];
+  public posts: Post[] = [];
 
   constructor(private portService: PostService) { }
 
   ionViewWillEnter() {
     const homePosts = this.portService.homePosts();
     homePosts.then(response => {
-      this.posts = response;
+      this.posts = <Post[]>response;
     })
   }
 }
