@@ -17,9 +17,14 @@ export class PostService {
     return this.formatPost(data);
   }
 
+  async userPosts(userId) {
+    const response: any = await this.http.get(`${API_URL}/api/v1/users/${userId}/posts`, { headers: this.auth.authHeader() }).toPromise();
+    return this.formatPost(response);
+  }
+
   private formatPost(data) {
     let posts: Post[] = [];
-    for(let post of data.data.reverse()) {
+    for (let post of data.data.reverse()) {
       const postFormatter = new PostFormatter(post, data.included);
       posts.push(postFormatter.call());
     }

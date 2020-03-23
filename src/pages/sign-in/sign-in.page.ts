@@ -17,6 +17,6 @@ export class SignInPage {
   }
 
   goToSignUpPage() {
-    this.router.navigateByUrl("sign-up");
+    this.router.navigateByUrl("Sign-Up");
   }
 }

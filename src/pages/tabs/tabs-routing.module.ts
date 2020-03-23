@@ -5,11 +5,11 @@ import { SignInPage } from '../sign-in/sign-in.page'
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'Tabs',
     component: TabsPage,
     children: [
       {
-        path: 'home',
+        path: 'Home',
         children: [
           {
             path: '',
@@ -19,7 +19,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'profile',
+        path: 'MyProfile',
         children: [
           {
             path: '',
@@ -29,7 +29,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'post',
+        path: 'Post',
         children: [
           {
             path: '',
@@ -39,7 +39,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'search',
+        path: 'Search',
         children: [
           {
             path: '',
@@ -49,7 +49,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'logout',
+        path: 'Logout',
         children: [
           {
             path: '',
@@ -66,7 +66,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'signin',
+    path: 'SignIn',
     component: SignInPage
   },
   {

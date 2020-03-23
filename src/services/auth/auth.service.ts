@@ -9,7 +9,7 @@ import { API_URL } from '../../constants'
 })
 export class AuthService {
 
-  private _currentUser: { email: string, authentication_token: string } = null;
+  private _currentUser: { id: number, email: string, authentication_token: string } = null;
   private ifSignedIn = () => { };
   private ifSignedOut = () => { };
 
@@ -36,6 +36,10 @@ export class AuthService {
         this.ifSignedIn();
       }
     });
+  }
+
+  get currentUser() {
+    return this._currentUser;
   }
 
   login(email: string, password: String) {
