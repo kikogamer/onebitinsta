@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'Sign-Up',
     loadChildren: () => import('../pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'User-Page/:id',
+    loadChildren: () => import('../pages/other-profile/other-profile.module').then( m => m.OtherProfilePageModule)
   }
 ];
 

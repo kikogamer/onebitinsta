@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../../models/post'
+import { User } from '../../models/user'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'post-list',
@@ -12,8 +14,14 @@ export class PostListComponent {
   @Input() currentList = "details";
   @Input() showToolbar = false;
 
+  constructor (private router: Router) {}
+
   changeList(newList) {
     this.currentList = newList;
+  }
+
+  detailUser(user: User) {
+    this.router.navigate(['/User-Page', user.id]);
   }
 
   writeDescriptionWithHashtags(description) {
